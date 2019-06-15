@@ -4,6 +4,7 @@ const app = () => {
     const outline = document.querySelector('.moving-outline circle');
     const video = document.querySelector('.vid-container video');
 
+
     // Sounds
     const sounds = document.querySelectorAll('.sound-picker button');
 
@@ -46,12 +47,10 @@ const app = () => {
     const checkPlaying = song => {
         if(song.paused) {
             song.play();
-            video.play();
-            play.src = './svg/pause.svg';
+            play.src = './svg/pause-button.svg';
         } else {
             song.pause();
-            video.pause();
-            play.src = './svg/play.svg';
+            play.src = './svg/media-play-symbol.svg';
         }
     };
 
@@ -66,13 +65,13 @@ const app = () => {
         let progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
         outline.style.strokeDashoffset = progress;
 
-        // Animate test
+        // Animate text
         timeDisplay.textContent = `${minutes}:${seconds}`;
 
         if(currentTime >= fakeDuration) {
             song.pause();
             song.currentTime = 0;
-            play.src = './svg/play.svg';
+            play.src = './svg/media-play-symbol.svg';
             video.pause();
         }
     };
